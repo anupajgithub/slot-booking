@@ -1,0 +1,88 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Form validation (IT SOURCECODE)</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" name="StudentRegistration" onsubmit="return(validate());">
+
+            <table cellpadding="2" width="90%" align="center" cellspacing="2">
+
+                <tr class="form-control">
+                    <td colspan=2>
+                        <h2>Student Registration Form</h2>
+                    </td>
+                </tr>
+
+                <tr class="form-control">
+                    <td> passport photo</td>
+                    <td><input type="file" name="idproof" id="idproof">
+                        <p id="error1" style="display:none; color:#FF0000;">
+                    </td>
+
+
+                </tr>
+                <tr class="form-control">
+                    <td> hsc mark sheeet</td>
+                    <td><input type="file" name="idproof" id="idproof">
+                        <p id="error1" style="display:none; color:#FF0000;">
+                    </td>
+
+
+                </tr>
+                <tr class="form-control">
+                    <td> ssc mark sheet</td>
+                    <td><input type="file" name="idproof" id="idproof">
+                        <p id="error1" style="display:none; color:#FF0000;">
+                    </td>
+
+
+                </tr>
+                <tr class="form-control">
+                    <td> all sem mark sheet</td>
+                    <td><input type="file" name="idproof" id="idproof">
+                        <p id="error1" style="display:none; color:#FF0000;">
+                    </td>
+
+
+                </tr>
+                <tr class="formbutton">
+                    <td><input type="reset"></td>
+
+
+                    <td colspan="2"><input type="submit" value="submit" /></td>
+                    
+
+                </tr>
+
+            </table>
+        </form>
+    </div>
+    <script>
+        $('button[type="submit"]').prop("disabled", true);
+        var a=0;        
+        $('#idproof').bind('change', function() {
+        if ($('button:submit').attr('disabled',false)){
+                $('button:submit').attr('disabled',true);
+        }
+        var ext = $('#idproof').val().split('.').pop().toLowerCase();
+        if ($.inArray(ext, ['gif','png','jpg','jpeg','text','rtf','doc','pdf']) == -1){
+                $('#error1').slideDown("slow");
+            a=0;
+        }else{
+                $('#error1').slideUp("slow");
+                if (a==1){
+                    $('button:submit').attr('disabled',false);
+                    }
+            }
+        });
+</script>
+</body>
+
+</html>
